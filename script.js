@@ -53,7 +53,7 @@ const generateTime = () => {
   console.log(sec1b);
 };
 
-// setInterval(generateTime, 1000);
+setInterval(generateTime, 1000);
 
 
 const makeTime = (time) => {
