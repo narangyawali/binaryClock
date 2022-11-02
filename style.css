@@ -1,0 +1,35 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  background-color: #282828;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* to place clock in center of the screen  */
+
+
+}
+.clock {
+  
+    color: rebeccapurple;
+   
+}
+
+.ele{
+    height: 20px;
+    width: 20px;
+    border: 1px solid grey;
+}
+
+.deact{
+    background-color: #484848;
+}
+
+.act{
+    background-color: whitesmoke;
+}
