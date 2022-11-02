@@ -17,6 +17,7 @@
 .clock {
   
     color: rebeccapurple;
+    display: flex;
    
 }
 
@@ -33,3 +34,12 @@
 .act{
     background-color: whitesmoke;
 }
+
+.vertical{
+
+ 
+}
+
+
+
+

@@ -9,7 +9,7 @@ const s1 = [0, 0, 0, 0];
 const s2 = [0, 0, 0, 0];
 
 var sec1;
-var time;
+var timeb;
 
 const generateTime = () => {
   let now = new Date();
@@ -22,16 +22,25 @@ const generateTime = () => {
 
   let sec1 = Math.floor(now.getSeconds() / 10);
   let sec2 = now.getSeconds() % 10;
-//   to get digits 
+  //   to get digits
 
-	let h1b = hour1.toString(2).padStart(4,0)
-    let h2b = hour2.toString(2).padStart(4, 0)
-    let m1b = min1.toString(2).padStart(4, 0)
-    let m2b = min2.toString(2).padStart(4, 0)
+  let h1b = hour1.toString(2).padStart(4, 0);
+  let h2b = hour2.toString(2).padStart(4, 0);
+  let m1b = min1.toString(2).padStart(4, 0);
+  let m2b = min2.toString(2).padStart(4, 0);
 
-// converting into binary
+  let s1b = sec1.toString(2).padStart(4, 0);
+  let s2b = sec2.toString(2).padStart(4, 0);
 
- 	 timeb = [h1b,h2b,m1b,m2b]
+  // converting into binary
+
+  //   timeb = [h1b, h2b, m1b, m2b];
+
+  timeb = [h1b, h2b, m1b, m2b, s1b, s2b];
+  //to include second in time
+
+  makeTime(timeb);
+  // console.table(timeb)
 
   //   console.log(now.getHours(), now.getMinutes());
 
@@ -39,70 +48,40 @@ const generateTime = () => {
 
   //   console.log(hour1.toString(2).padStart(4,0));
 
-
-
-
   sec1b = (now.getSeconds() % 10).toString(2).padStart(4, 0);
-  makeHour1();
-	makeTime()
+  //   makeADigit(sec1b);
   console.log(sec1b);
 };
 
-// setInterval(generateTime,1000)
+// setInterval(generateTime, 1000);
 
 
+const makeTime = (time) => {
+  while (clock.firstChild) {
+    clock.removeChild(clock.firstChild);
+  }
 
+  time.forEach((e) => {
+    makeADigit(e);
+  });
+};
 
+const makeADigit = (digit) => {
+  const vertical = document.createElement("div");
+  vertical.className = "vertical";
 
-const makeTime = () => {
-  
-
-    const vertical = document.createElement("div");
-    vertical.className = "vertical";
-  
-    Array.from(sec1b).forEach((e) => {
-      const box = document.createElement("div");
-      box.className = "ele";
-      if (e == 0) {
-        box.className = box.classList + " deact";
-      } else {
-        box.className = box.classList + " act";
-      }
-      vertical.appendChild(box);
-    });
-  
-    while (clock.firstChild) {
-      clock.removeChild(clock.firstChild);
+  Array.from(digit).forEach((e) => {
+    const box = document.createElement("div");
+    box.className = "ele";
+    if (e == 0) {
+      box.className = box.classList + " deact";
+    } else {
+      box.className = box.classList + " act";
     }
-    
-    clock.appendChild(vertical);
-  
-  };
+    vertical.appendChild(box);
+  });
 
-
-// const makeHour1 = () => {
-  
-
-//   const vertical = document.createElement("div");
-//   vertical.className = "vertical";
-
-//   Array.from(sec1b).forEach((e) => {
-//     const box = document.createElement("div");
-//     box.className = "ele";
-//     if (e == 0) {
-//       box.className = box.classList + " deact";
-//     } else {
-//       box.className = box.classList + " act";
-//     }
-//     vertical.appendChild(box);
-//   });
-
-//   while (clock.firstChild) {
-//     clock.removeChild(clock.firstChild);
-//   }
-  
-//   clock.appendChild(vertical);
-
-// };
+  clock.appendChild(vertical);
+};
 
 // makeHour1();
